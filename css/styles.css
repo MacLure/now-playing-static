@@ -27,6 +27,7 @@ body {
   This rule ensure that all images always fit in their container
    but are never stretched beyond their native resolution
 */
+
 img {
   max-width: 100%;
 }
@@ -174,6 +175,7 @@ figure {
 .footer-nav-item {
   display: inline-block;
   margin-right: 0.5em;
+
 }
 
 /*
@@ -185,7 +187,6 @@ figure {
   margin-right: 0;
 }
 
-
 .about {
   background-color: #333333;
   color: #ffffff;
@@ -194,4 +195,128 @@ figure {
 
 .about > p {
   margin: 0;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  body {
+    display: grid;
+    grid-template-columns: 7em 1fr;
+  }
+
+  main {
+    grid-column-start: 2;
+  }
+
+  footer {
+    grid-column-start: 2;
+  }
+
+  .site-header {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 1000;
+    background-color: 
+    white;
+  }
+
+  .site-logo {
+    position: relative;
+    display: block;
+    width: 70%;
+    margin: 0;
+    z-index: 100;
+  }
+
+  .site-nav {
+    position: relative;
+    display: grid;
+    text-align: center;
+    z-index: 100;
+  }
+
+  .site-nav-item {
+    width: 100%;
+    display: block;
+  }
+
+  .movie-overview {
+    display: block;
+  }
+
+  footer {
+    background-color: black;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 992px) {
+
+  main {
+  display: grid;
+   grid-template-columns: 3;
+  }
+  
+  .movie-overview {
+    display: none;
+  }
+  .movie:first-of-type {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .movie-poster {
+    display: block;
+  }
+
+  .movie-backdrop {
+    display: none;
+  }
+
+  .movie:first-of-type>.movie-image>.movie-backdrop {
+    display: block;
+  }
+  .movie:first-of-type>.movie-image>.movie-poster {
+    display: none;
+  }
+
+  .movie:first-of-type>.movie-details>.movie-overview {
+    display: block;
+  }
+}
+
+
+@media screen and (min-width: 1300px) {
+
+  main {
+    grid-template-columns: 4;
+  }
+
+  .movie:first-of-type {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .movie:nth-of-type(2) {
+    grid-column-start: 3;
+    grid-column-end: 5;
+  }
+  .movie:nth-of-type(2)>.movie-image>.movie-poster {
+    display: none;
+  }
+  .movie:nth-of-type(2)>.movie-image>.movie-backdrop {
+    display: block;
+  }
+  .movie:nth-of-type(2)>.movie-details>.movie-overview {
+    display: block;
+  }
+
 }
